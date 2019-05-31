@@ -29,6 +29,7 @@ def readUrlFile(url):
 def split_storm_info(storm_list):
     """storm_holder takes a list of strings and creates a pandas dataframe
     for the data set taken off the NHC archive."""
+
     name, cycloneNum, year, stormType, basin, filename = [],[],[],[],[],[]
     for line in storm_list[1:]:
         fields = line.split(",")
@@ -43,6 +44,35 @@ def split_storm_info(storm_list):
                         "Year":np.array(year), "StormType":stormType, "Filename":filename})
     return(storms)
 
+def split_model_info(fileLines):
+    """split_model_info is a function that will split the data for the models
+    into a pandas dataframe."""
+    # Pulling necessary data from lines in file
+    model, info = [],[]
+    for line in fileLines[1:]:
+        model.append(line[4:8].strip())
+        info.append(line[68:].strip())
+
+    #Combining data from file into a Pandas Dataframe dictionary.
+    models = DataFrame({"Model":model, "Info":info})
+    return(models)
+
+
+def get_storms(year, storms):
+    """get_storms is a function that is written to take a user defined year from
+    1851 to 2019 and then strim the split_storms_info dataframe to just have
+    storms from that year"""
+    one_year_table = storms[storms.Year == year]
+    return(one_year_table)
+
+def get_models(year, filename):
+    """get_models is a function that takes in a storm name from a previously
+    selected year"""
+    url = "http://ftp.nhc.noaa.gov/atcf/archive/%4s/a%8s.dat.gz" % (year,filename)
+    fileLines = readUrlFile(url)
+    models = split_model_info(fileLines)
+    print(models)
+
 
 
 
@@ -50,4 +80,11 @@ def split_storm_info(storm_list):
 
 if __name__ == '__main__':
     fileLines = readUrlFile("http://ftp.nhc.noaa.gov/atcf/index/storm_list.txt")
-    print(split_storm_info(fileLines))
+    storms = split_storm_info(fileLines)
+    #year = str(input("Enter the year for which to find the storms: "))
+    year = str(2017)
+    one_year_table = get_storms(year, storms)
+    print(one_year_table)
+    #Taking the filename from SELMA
+    filename = 'ep202017'
+    one_storm_model = get_models(year, filename)
