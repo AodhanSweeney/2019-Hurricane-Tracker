@@ -1,5 +1,6 @@
 numpy==1.16.*
 pandas==0.24.*
+GEOS==3.3.3
 cartopy==0.17.*
 requests==2.22.*
 ipywidgets==7.4.*
