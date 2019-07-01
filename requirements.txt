@@ -1,6 +1,6 @@
 numpy==1.16.*
-pandas
-cartopy
-requests
-ipywidgets
+pandas==0.24.*
+cartopy==0.17.*
+requests==2.22.*
+ipywidgets==7.4.*
 matplotlib==3.*
