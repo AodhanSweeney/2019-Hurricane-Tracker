@@ -8,8 +8,8 @@ dependencies:
   - pip:
     - pandas
     - requests
-    - GEOS==3.3.3
-    - PROJ==6.*
+    - GEOS
+    - PROJ
     - cartopy
     - ipywidgets
     - matplotlib
