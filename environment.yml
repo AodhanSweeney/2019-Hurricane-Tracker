@@ -10,6 +10,7 @@ dependencies:
     - requests
     - GEOS
     - PROJ
+    - shapely
     - cartopy
     - ipywidgets
     - matplotlib
