@@ -5,12 +5,8 @@ dependencies:
   - python
   - numpy
   - pip
-  - pip:
-    - pandas
-    - requests
-    - GEOS
-    - PROJ
-    - shapely
-    - cartopy
-    - ipywidgets
-    - matplotlib
+  - pandas
+  - requests
+  - cartopy
+  - ipywidgets
+  - matplotlib
