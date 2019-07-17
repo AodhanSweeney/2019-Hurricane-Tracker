@@ -3,3 +3,5 @@ Welcome to my updated Hurricane Tracking GUI which works out of an IPython Noteb
 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AodhanSweeney/2019-Hurricane-Tracker/master)
+
+https://github.com/AodhanSweeney/2019-Hurricane-Tracker/blob/master/Tracker_Screenshot.png
